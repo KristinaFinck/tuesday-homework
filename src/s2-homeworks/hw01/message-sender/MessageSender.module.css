@@ -2,6 +2,13 @@
 display: flex;
   margin-top: 20px;
 }
+.imageAndText img {
+  width: 75px;
+  height: 75px;
+  flex-shrink: 0;
+  border-radius: 48px;
+  margin: 15px;
+}
 
 .textarea {
   width: 976px;
