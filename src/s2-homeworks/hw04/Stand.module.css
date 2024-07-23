@@ -14,10 +14,17 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
+    margin: 0;
+}
+.buttons > div {
+    margin: 0;
 }
 
 .checkboxes {
     display: flex;
     flex-direction: column;
     gap: 36px;
+}
+.checkboxes > div {
+    margin-left: 0;
 }
