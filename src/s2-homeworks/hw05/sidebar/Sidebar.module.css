@@ -40,12 +40,12 @@
 }
 
 .nav a:hover {
-    color: cadetblue;
+    color: steelblue;
     text-decoration: none;
 }
 
-.nav a.active {
-    color: steelblue;
+.nav a:active {
+    color: cadetblue;
     text-decoration: underline;
 }
 
