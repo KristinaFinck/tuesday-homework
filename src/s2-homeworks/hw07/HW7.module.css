@@ -1,2 +1,10 @@
 .container {
+    display: flex;
+    justify-content: start;
+    gap: 10%;
+    margin: 5px;
+    border: 1px red dotted; {/*отладочная рамка */}
+}
+.container div {
+    margin: 0;
 }
