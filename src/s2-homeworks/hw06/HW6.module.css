@@ -1,7 +1,18 @@
 .buttonsContainer {
 
 }
+.buttonsContainer > button {
+    margin-right: 20px;
+}
+.buttonsContainer > button:hover {
+ width: 132px;
+}
 
 .editableSpanContainer {
-    margin-left: 10px
+    display: inline-block;
+    margin-left: 0;
+    margin-right: auto;
+    align-self: flex-start; /* Прижать этот элемент к левому краю по вертикали */
+    color: #77aaff;
+
 }
