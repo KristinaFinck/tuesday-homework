@@ -1,7 +1,10 @@
 .select {
- margin-left: 10px;
+    width: 165px;
+    height: 24px;
     align-self: start;
-    border: 1px green dashed;
+    border: 1px solid;
+    border-color: #C2C2C2;
+    font-size: 14px;
 }
 
 .select:focus {

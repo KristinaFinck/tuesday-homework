@@ -1,17 +1,32 @@
-.radio {
+
+.options {
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
-}
+    gap: 10px;
+    border: 1px dotted greenyellow;
 
-.radio::before {
-}
-
-
-.radio:checked::before {
 }
 
 .label {
+    margin: 0;
+    align-self: start;
+    border: 1px dotted blue;
+}
+.radio {
+
 }
 
-.options {
+
+input[type="radio"]:checked {
+    accent-color: black; /* Поддерживается в большинстве современных браузеров */
 }
+
+.label span {
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+    margin-left: 10px;
+}
+
+
