@@ -4,14 +4,11 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    border: 1px dotted greenyellow;
-
 }
 
 .label {
     margin: 0;
     align-self: start;
-    border: 1px dotted blue;
 }
 .radio {
 

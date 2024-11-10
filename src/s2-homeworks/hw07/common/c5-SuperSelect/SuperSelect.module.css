@@ -2,14 +2,17 @@
     width: 165px;
     height: 24px;
     align-self: start;
-    border: 1px solid;
-    border-color: #C2C2C2;
+    border: 1px solid lightslategray;
+    border-radius: 2px;
     font-size: 14px;
+    position: relative;
 }
 
 .select:focus {
 }
 
+.option {
 
+}
 .option:hover {
 }
