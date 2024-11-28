@@ -1,16 +1,22 @@
 .item {
+
 }
 
 .item:last-of-type {
 }
 
 .users {
+    margin-left: 0;
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed; /* Все столбцы имеют одинаковую ширину */
 }
 
 .buttonsContainer {
     display: flex;
     gap: 2%;
     justify-content: end;
+    margin-bottom: 20px;
 }
 .buttonsContainer button {
     margin: 0;
@@ -19,14 +25,44 @@
 
 }
 .container {
-
+width: 606px;
+    margin-left: 0;
 }
 
-.thead {
+thead {
+    background-color: #E5E5E5;
+    height: 36px;
+    display: inline-block;
+    width: 606px;
+    text-align: left;
+    padding-top: 2%;
+    padding-left: 2%;
 }
 
+ .users tbody tr {
+    max-width: 100%;
+    border-bottom: 1px solid lightgray;
+     margin-left: 0;
+}
+.users tbody {
+}
 .nameCol {
+    width: 60%;
+    margin: 0;
 }
+
 
 .ageCol {
+    width: 40%;
+  padding-left: 100px;
+    text-align: left;
+    margin-left: 0;
 }
+.users tbody tr td{
+    margin-left: 0;
+    padding: 2%;
+    max-width: 300px;
+    font-size: 0.75em;
+
+}
+
