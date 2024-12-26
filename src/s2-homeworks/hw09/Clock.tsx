@@ -10,9 +10,13 @@ function Clock() {
     const [show, setShow] = useState<boolean>(false)
 
     const start = () => {
+        //СДЕЛАНО
         // пишут студенты // запустить часы (должно отображаться реальное время, а не +1)
         // сохранить ид таймера (https://learn.javascript.ru/settimeout-setinterval#setinterval)
 
+    const id = window.setInterval(() => {setDate(new Date());// Обновляем текущее время каждую секунду
+        }, 1000)
+        setTimerId(id)
     }
 
     const stop = () => {
@@ -66,7 +70,7 @@ function Clock() {
             <div className={s.buttonsContainer}>
                 <SuperButton
                     id={'hw9-button-start'}
-                    disabled={true} // пишут студенты // задизэйблить если таймер запущен
+                    disabled={!!timerId} // пишут студенты // задизэйблить если таймер запущен
                     onClick={start}
                 >
                     start
