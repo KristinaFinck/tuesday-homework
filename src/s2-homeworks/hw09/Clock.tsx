@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import SuperButton from '../hw04/common/c2-SuperButton/SuperButton'
 import {restoreState} from '../hw06/localStorage/localStorage'
 import s from './Clock.module.css'
+import {clearInterval} from "timers";
 
 function Clock() {
     const [timerId, setTimerId] = useState<number | undefined>(undefined)
@@ -20,8 +21,12 @@ function Clock() {
     }
 
     const stop = () => {
+        // СДЕЛАНО
         // пишут студенты // поставить часы на паузу, обнулить ид таймера (timerId <- undefined)
-
+       if (timerId !== undefined) {
+           clearInterval(timerId); // Останавливаем таймер
+           setTimerId(undefined); // Сбрасываем идентификатор
+       }
     }
 
     const onMouseEnter = () => { // пишут студенты // показать дату если наведена мышка
