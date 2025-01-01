@@ -1,14 +1,35 @@
 .buttonsContainer {
-}
+    padding-top: 10px;
 
+}
+.buttonsContainer > button:first-child {
+    margin-right: 5px;
+}
+.buttonsContainer button:hover {
+   width: 132px;
+}
 .clock {
+
 }
 
 .watch {
+    line-height: 2em;
 }
+.watch > span:first-child {
+    font-weight: 400;
+    border: 1px dotted red;
 
+}
+.watch > span:last-child {
+    font-weight: 600;
+
+}
 .watch strong {
 }
 
 .more {
+    font-weight: 400;
+    font-size: 0.7em;
+    line-height: 2em;
+    color: grey;
 }
