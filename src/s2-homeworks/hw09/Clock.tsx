@@ -42,14 +42,15 @@ setShow(false)
         hour: '2-digit',
         minute: '2-digit',
         second: '2-digit',
+        hourCycle: 'h23', // 24-часовой формат
     }).format(date);
 
-    const stringDate = new Intl.DateTimeFormat('en-GB',
+    const stringDate = date.toLocaleDateString('en-GB',
         {
             day: '2-digit',
             month: '2-digit',
             year: 'numeric'
-        }).format(date);
+        }).replace(/\//g, '.'); // Заменяем слеши на точки
 
 // || <br/> // день.месяц.год (01.02.2022) // пишут студенты, варианты 01.02.0123/01.02.-123/01.02.12345 не рассматриваем
 
@@ -58,7 +59,7 @@ setShow(false)
             weekday: 'long',
         }).format(date)
       // пишут студенты
-    const stringMonth = new Intl.DateTimeFormat('en-US', {
+    const stringMonth = new Intl.DateTimeFormat('en-GB', {
             month: 'long',
         }).format(date)
      // пишут студенты
