@@ -17,8 +17,6 @@
 }
 .watch > span:first-child {
     font-weight: 400;
-    border: 1px dotted red;
-
 }
 .watch > span:last-child {
     font-weight: 600;
