@@ -13,7 +13,7 @@ import {Loader} from './Loader'
 * 4 - сделать стили в соответствии с дизайном
 * */
 
-const HW10 = () => {
+export const HW10 = () => {
     const dispatch = useDispatch()
   const isLoading = useSelector((state: AppStoreType) => state.loading.isLoading)
     // useSelector, useDispatch // пишет студент+
