@@ -1,10 +1,13 @@
 .loader {
-    width: 40px;
-    height: 40px;
+    margin-left: 5%; /* Гарантируем прижатие к левому краю */
+    width: 35px;
+    height: 35px;
     border: 4px solid transparent;
     border-top: 4px solid #3498db;
     border-radius: 50%;
     animation: spin 0.8s ease-in-out infinite;
+    margin-top: 0;
+    margin-bottom: 0
 }
 
 @keyframes spin {
@@ -14,8 +17,4 @@
     100% {
         transform: rotate(360deg);
     }
-}
-
-.s2.hw {
-    border: 1px dotted red
 }
