@@ -1,8 +1,20 @@
 .container {
+    width: 15%;
+    margin-left: 0;
 }
 
 .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px dotted red;
 }
 
 .number {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    width: 32px; /* одинаково слева и справа */
+    text-align: center;
+    border: 1px dashed yellowgreen;
 }
