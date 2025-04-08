@@ -33,7 +33,7 @@ const SuperRange: React.FC<SliderProps> = (props) => {
                     backgroundColor: '#00CC22',
                 },
                 '& .MuiSlider-rail': {
-                     width: 110,
+                     // width: 110,
                     opacity: 0.5,
                     backgroundColor: 'gray',
                 },
