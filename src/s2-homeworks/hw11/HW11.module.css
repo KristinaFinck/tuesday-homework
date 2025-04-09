@@ -5,9 +5,10 @@
 
 .wrapper {
     display: flex;
+    gap: 5%;
     align-items: center;
     justify-content: center;
-    border: 1px dotted red;
+
 }
 
 .number {
@@ -16,7 +17,7 @@
     line-height: 20px;
     width: 32px; /* одинаково слева и справа */
     text-align: center;
-    border: 1px dashed yellowgreen;
+
 }
 .invisible {
     visibility: hidden;
