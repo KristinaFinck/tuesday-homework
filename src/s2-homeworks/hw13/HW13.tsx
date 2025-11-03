@@ -19,7 +19,7 @@ const HW13 = () => {
     const [text, setText] = useState('')
     const [info, setInfo] = useState('')
     const [image, setImage] = useState('')
-
+   const [isLoading, setIsLoading] = useState(false)
     const send = (x?: boolean | null) => () => {
         const url =
             x === null
@@ -30,18 +30,25 @@ const HW13 = () => {
         setImage('')
         setText('')
         setInfo('...loading')
+        setIsLoading(true)
 
         axios
             .post(url, {success: x})
             .then((res) => {
                 setCode('Код 200!')
                 setImage(success200)
-                // дописать
+                // дописать +
+                setText('...всё ok)')
+                setInfo('код 200 - обычно означает что скорее всего всё ok ')
+
 
             })
             .catch((e) => {
                 // дописать
 
+            })
+            .finally(() => {
+            setIsLoading(false)
             })
     }
 
@@ -55,6 +62,7 @@ const HW13 = () => {
                         id={'hw13-send-true'}
                         onClick={send(true)}
                         xType={'secondary'}
+                        disabled={isLoading}
                         // дописать
 
                     >
