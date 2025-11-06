@@ -45,6 +45,10 @@ const HW13 = () => {
             })
             .catch((e) => {
                 // дописать
+                setCode('Ошибка 500!')
+                setImage(error500)
+                setText('имитация ошики на сервере')
+                setInfo(' ошибка 500 — обычно означает что что-то сломалось \n на сервере, например, база данных')
 
             })
             .finally(() => {
@@ -62,8 +66,9 @@ const HW13 = () => {
                         id={'hw13-send-true'}
                         onClick={send(true)}
                         xType={'secondary'}
+                        // дописать+
                         disabled={isLoading}
-                        // дописать
+
 
                     >
                         Send true
@@ -72,7 +77,8 @@ const HW13 = () => {
                         id={'hw13-send-false'}
                         onClick={send(false)}
                         xType={'secondary'}
-                        // дописать
+                        // дописать+
+                        disabled={isLoading}
 
                     >
                         Send false
