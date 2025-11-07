@@ -1,24 +1,47 @@
 .buttonsContainer {
+    width: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 0;
 }
 
 .responseContainer {
-    border: 1px solid red
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    gap: 10px;
+
 }
 
 .imageContainer {
+    width: 500px;
+
 }
 
 .image {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }
 
 .textContainer{
+    margin-left: 50px;
+    margin-top: 40px;
+
 }
 
 .code {
+    font-size: 30px;
+    font-weight: 500;
 }
 
 .text {
+    font-size: 16px;
+    font-weight: 500;
 }
 .info {
+    font-size: 16px;
+    font-weight: 500;
     white-space: pre-line;
 }
