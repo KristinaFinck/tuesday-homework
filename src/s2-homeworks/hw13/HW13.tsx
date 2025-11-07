@@ -44,12 +44,20 @@ const HW13 = () => {
 
             })
             .catch((e) => {
-                // дописать
-                setCode('Ошибка 500!')
-                setImage(error500)
-                setText('имитация ошики на сервере')
-                setInfo(' ошибка 500 — обычно означает что что-то сломалось \n на сервере, например, база данных')
+                const status = e.response?.status
+                if (status === 500) {
+                    // дописать
+                    setCode('Ошибка 500!')
+                    setImage(error500)
+                    setText('имитация ошики на сервере')
+                    setInfo(' ошибка 500 — обычно означает что что-то сломалось \n на сервере, например, база данных')
+                } else if (status === 400) {
+                    setCode('Ошибка 400!')
+                    setImage(error400)
+                    setText('ты не отправил success в body вообще!')
+                    setInfo('ошибка 400 - обычно означает что скорее всего фронт отправил что-то не то на бэк!')
 
+                }
             })
             .finally(() => {
             setIsLoading(false)
@@ -87,7 +95,8 @@ const HW13 = () => {
                         id={'hw13-send-undefined'}
                         onClick={send(undefined)}
                         xType={'secondary'}
-                        // дописать
+                        // дописать +
+                        disabled={isLoading}
 
                     >
                         Send undefined
