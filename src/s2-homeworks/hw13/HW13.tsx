@@ -55,8 +55,13 @@ const HW13 = () => {
                     setCode('Ошибка 400!')
                     setImage(error400)
                     setText('ты не отправил success в body вообще!')
-                    setInfo('ошибка 400 - обычно означает что скорее всего фронт отправил что-то не то на бэк!')
+                    setInfo('ошибка 400 - обычно означает что скорее всего фронт \n отправил что-то не то на бэк!')
 
+                }  else {
+                    setCode('Error!')
+                    setImage(errorUnknown)
+                    setText('Network Error')
+                    setInfo('AxiosError')
                 }
             })
             .finally(() => {
@@ -105,8 +110,8 @@ const HW13 = () => {
                         id={'hw13-send-null'}
                         onClick={send(null)} // имитация запроса на не корректный адрес
                         xType={'secondary'}
-                        // дописать
-
+                        // дописать +
+                        disabled={isLoading}
                     >
                         Send null
                     </SuperButton>
