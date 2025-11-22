@@ -43,13 +43,23 @@ const HW14 = () => {
     }
 
     const onChangeText = (value: string) => {
-        setFind(value)
-        // делает студент
+        setValue(value)
+        if (onChangeText) {
+            onChangeText(value)
+        }
 
-        // добавить/заменить значение в квери урла
-        // setSearchParams(
+        if (timerId) {
+            clearTimeout(timerId)
+        }
 
-        //
+        const id = window.setTimeout(() => {
+            if (onDebouncedChange) {
+                onDebouncedChange(value)
+            }
+        }, 1500)
+
+        setTimerId(id)
+    }
     }
 
     useEffect(() => {
