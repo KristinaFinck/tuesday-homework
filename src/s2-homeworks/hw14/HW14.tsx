@@ -34,33 +34,18 @@ const HW14 = () => {
         setLoading(true)
         getTechs(value)
             .then((res) => {
-                // делает студент
-
+                // делает студент +
                 // сохранить пришедшие данные
-
-                //
+                setTechs(res?.data?.techs || [])
+                setLoading(false)
             })
     }
 
     const onChangeText = (value: string) => {
-        setValue(value)
-        if (onChangeText) {
-            onChangeText(value)
-        }
-
-        if (timerId) {
-            clearTimeout(timerId)
-        }
-
-        const id = window.setTimeout(() => {
-            if (onDebouncedChange) {
-                onDebouncedChange(value)
-            }
-        }, 1500)
-
-        setTimerId(id)
+        setFind(value)
+        setSearchParams({find: value})
     }
-    }
+
 
     useEffect(() => {
         const params = Object.fromEntries(searchParams)
