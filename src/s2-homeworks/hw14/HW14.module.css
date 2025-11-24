@@ -1,7 +1,10 @@
 .tech {
-
+border: 1px dotted red;
 }
 
 .loading {
-
+border: 1px solid green;
+}
+.hw {
+    border: 1px solid yellow;
 }
