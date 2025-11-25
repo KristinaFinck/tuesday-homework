@@ -1,10 +1,26 @@
 .tech {
-border: 1px dotted red;
+
 }
 
 .loading {
-border: 1px solid green;
+    width: 40vw;
+    text-align: right;
+    color: grey;
+    font-size: smaller;
+}
+.input{
+    width: 40vw;
+    padding-left: 10px;
 }
 .hw {
-    border: 1px solid yellow;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+}
+.hw div {
+margin-left: 0;
+}
+.inputSpan{
+     font-size: large;
+    margin-left: 2%;
 }
