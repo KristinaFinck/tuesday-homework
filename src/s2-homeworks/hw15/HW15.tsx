@@ -14,6 +14,26 @@ import SuperSort from './common/c10-SuperSort/SuperSort'
 * 4 - сделать стили в соответствии с дизайном
 * 5 - добавить HW15 в HW5/pages/JuniorPlus
 * */
+//
+// Пользователь нажал пагинацию
+//         ↓
+// вызывается onChangePagination
+//         ↓
+// вызывается sendQuery({page,count,sort})
+//         ↓
+// sendQuery вызывает getTechs
+//         ↓
+// getTechs делает axios.get(...)
+//         ↓
+// axios отправляет запрос на сервер
+//         ↓
+// сервер возвращает techs и totalCount
+//         ↓
+// .then получает res
+//         ↓
+// мы сохраняем данные в state
+//         ↓
+// React перерисовывает страницу
 
 type TechType = {
     id: number
@@ -47,16 +67,20 @@ const HW15 = () => {
     const [searchParams, setSearchParams] = useSearchParams()
     const [techs, setTechs] = useState<TechType[]>([])
 
-    const sendQuery = (params: any) => {
+    const sendQuery = (params: ParamsType) => {
         setLoading(true)
         getTechs(params)
             .then((res) => {
                 // делает студент
-
-                // сохранить пришедшие данные
-
-                //
+                if (res) {
+                    setTechs(res.data.techs)
+                    setTotalCount(res.data.totalCount)
+                }
             })
+
+.finally (() =>{
+        setLoading(false)
+    })
     }
 
     const onChangePagination = (newPage: number, newCount: number) => {
