@@ -5,9 +5,9 @@ import s from './SuperPagination.module.css'
 
 export type SuperPaginationPropsType = {
     id?: string
-    page: number
-    itemsCountForPage: number
-    totalCount: number
+    page: number //текущий номер страницы
+    itemsCountForPage: number  //текущее количество строк на странице
+    totalCount: number //общее количество всех записей
     onChange: (page: number, count: number) => void
 }
 
@@ -16,14 +16,20 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
         page, itemsCountForPage, totalCount, onChange, id = 'hw15',
     }
 ) => {
-    const lastPage = 10 // пишет студент // вычислить количество страниц
+    const lastPage = Math.ceil(totalCount/itemsCountForPage) // пишет студент // вычислить количество страниц +
 
-    const onChangeCallback = (event: any, page: number) => {
-        // пишет студент
+    const onChangeCallback = (event: any, page: number) => { //
+        // пишет студент +
+        onChange(page, itemsCountForPage)
+  // тут пользователь выбрал нужную страницу, количество строк не меняется
     }
 
     const onChangeSelect = (event: any) => {
-        // пишет студент
+        // пишет студент +
+        let newCount = Number(event.currentTarget.value)
+        // сколько теперь будет строк на страницах,
+        onChange(1, newCount)
+        // страницу сбрасываем на 1
     }
 
     return (
@@ -46,7 +52,9 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
 
             <SuperSelect
                 id={id + '-pagination-select'}
-                value={itemsCountForPage}
+                value={itemsCountForPage} //какое значение сейчас выбрано в select
+                //value выбирает пользователь на UI
+                // itemsCountForPage - хранится в стейте, текущее значение
                 options={[
                     {id: 4, value: 4},
                     {id: 7, value: 7},
