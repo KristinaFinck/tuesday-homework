@@ -5,6 +5,7 @@ import axios from 'axios'
 import SuperPagination from './common/c9-SuperPagination/SuperPagination'
 import {useSearchParams} from 'react-router-dom'
 import SuperSort from './common/c10-SuperSort/SuperSort'
+import superSort from "./common/c10-SuperSort/SuperSort";
 
 /*
 * 1 - дописать SuperPagination
@@ -96,15 +97,14 @@ const HW15 = () => {
     }
 
     const onChangeSort = (newSort: string) => {
-        // делает студент
-
-        // setSort(
-        // setPage(1) // при сортировке сбрасывать на 1 страницу
-
-        // sendQuery(
-        // setSearchParams(
-
-        //
+        // делает студент +
+        setSort(newSort)
+        setPage(1)// при сортировке сбрасывать на 1 страницу
+        sendQuery({sort:newSort,
+            page: 1, //sendQuery → работает с сервером → числа
+            count })
+        setSearchParams( {sort: newSort, page: "1", count: String(count)})
+//setSearchParams → работает с URL → строки
     }
 
     useEffect(() => {
