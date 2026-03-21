@@ -35,12 +35,13 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
     return (
         <div className={s.pagination}>
             <Pagination
+                //выбираем номер страницы
                 id={id + '-pagination'}
                 sx={{
                     // стили для Pagination // пишет студент
                 }}
                 page={page}
-                count={lastPage}
+                count={lastPage} // общее количество страниц, а не строк
                 onChange={onChangeCallback}
                 hideNextButton
                 hidePrevButton
@@ -51,6 +52,7 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
             </span>
 
             <SuperSelect
+                //выбираем количество строк на странице
                 id={id + '-pagination-select'}
                 value={itemsCountForPage} //какое значение сейчас выбрано в select
                 //value выбирает пользователь на UI

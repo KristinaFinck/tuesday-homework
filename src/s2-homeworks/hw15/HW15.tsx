@@ -60,13 +60,13 @@ const getTechs = (params: ParamsType) => {
 }
 
 const HW15 = () => {
-    const [sort, setSort] = useState('')
-    const [page, setPage] = useState(1)
-    const [count, setCount] = useState(4)
-    const [idLoading, setLoading] = useState(false)
-    const [totalCount, setTotalCount] = useState(100)
-    const [searchParams, setSearchParams] = useSearchParams()
-    const [techs, setTechs] = useState<TechType[]>([])
+    const [sort, setSort] = useState('')// строка сортировки (например: '0tech', '1tech', '')
+    const [page, setPage] = useState(1) //текущий номер страницы
+    const [count, setCount] = useState(4) //количество строк на странице
+    const [idLoading, setLoading] = useState(false) //просто крутилка
+    const [totalCount, setTotalCount] = useState(100) // общее количество элементов на сервере (нужно для расчёта страниц)
+    const [searchParams, setSearchParams] = useSearchParams() // параметры из URL (query string) и функция для их изменения
+    const [techs, setTechs] = useState<TechType[]>([]) // список технологий (данные, пришедшие с сервера)
 
     const sendQuery = (params: ParamsType) => {
         setLoading(true)
@@ -87,17 +87,17 @@ const HW15 = () => {
     const onChangePagination = (newPage: number, newCount: number) => {
         // делает студент
 
-        // setPage(
-        // setCount(
+        setPage(newPage)
+         setCount(newCount)
+        sendQuery({sort: sort,
+            page: newPage,
+            count: newCount,})
+            setSearchParams( {sort: sort, page: String(newPage), count: String(newCount)})
 
-        // sendQuery(
-        // setSearchParams(
-
-        //
     }
 
     const onChangeSort = (newSort: string) => {
-        // делает студент +
+        // делает студент +n
         setSort(newSort)
         setPage(1)// при сортировке сбрасывать на 1 страницу
         sendQuery({sort:newSort,
@@ -105,6 +105,10 @@ const HW15 = () => {
             count })
         setSearchParams( {sort: newSort, page: "1", count: String(count)})
 //setSearchParams → работает с URL → строки
+        // setSearchParams нужен, чтобы состояние страницы сохранялось в URL:
+// - после обновления страницы
+// - при передаче ссылки
+// - при навигации назад/вперёд в браузере
     }
 
     useEffect(() => {
