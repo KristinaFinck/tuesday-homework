@@ -1,7 +1,8 @@
 import React from 'react'
-import downIcon from './../icons/icon-down.png'
-import upIcon from './../icons/icon-up.png'
-import noneIcon from './../icons/icon-none.png'
+import downIcon from './../icons/sort-down.svg'
+import upIcon from './../icons/sort-up.svg'
+import noneIcon from './../icons/nonIcon.svg'
+import s from './../../HW15.module.css'
 // добавить в проект иконки и импортировать
 
 // const downIcon = '[\\/]'
@@ -17,7 +18,7 @@ export type SuperSortPropsType = {
 
 export const pureChange = (sort: string, down: string, up: string) => {
     // пишет студент, sort: (click) => down (click) => up (click) => '' (click) => down ...
-
+//+
     if (sort === down) {
         return up
     } else if( sort === up) {
@@ -48,6 +49,7 @@ export const SuperSort: React.FC<SuperSortPropsType> = (
 
     return (
         <span
+            className={s.sort}
             id={id + '-sort-' + value}
             onClick={onChangeCallback}
         >

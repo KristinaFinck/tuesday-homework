@@ -20,7 +20,7 @@ const SuperPagination: React.FC<SuperPaginationPropsType> = (
 
     const onChangeCallback = (event: any, page: number) => { //
         // пишет студент +
-        onChange(page, itemsCountForPage)
+        onChange(page, itemsCountForPage) //newPage создаётся здесь, page = newPage
   // тут пользователь выбрал нужную страницу, количество строк не меняется
     }
 

@@ -5,7 +5,7 @@ import axios from 'axios'
 import SuperPagination from './common/c9-SuperPagination/SuperPagination'
 import {useSearchParams} from 'react-router-dom'
 import SuperSort from './common/c10-SuperSort/SuperSort'
-import superSort from "./common/c10-SuperSort/SuperSort";
+
 
 /*
 * 1 - дописать SuperPagination
@@ -63,7 +63,7 @@ const HW15 = () => {
     const [sort, setSort] = useState('')// строка сортировки (например: '0tech', '1tech', '')
     const [page, setPage] = useState(1) //текущий номер страницы
     const [count, setCount] = useState(4) //количество строк на странице
-    const [idLoading, setLoading] = useState(false) //просто крутилка
+    const [isLoading, setLoading] = useState(false) //просто крутилка
     const [totalCount, setTotalCount] = useState(100) // общее количество элементов на сервере (нужно для расчёта страниц)
     const [searchParams, setSearchParams] = useSearchParams() // параметры из URL (query string) и функция для их изменения
     const [techs, setTechs] = useState<TechType[]>([]) // список технологий (данные, пришедшие с сервера)
@@ -72,38 +72,42 @@ const HW15 = () => {
         setLoading(true)
         getTechs(params)
             .then((res) => {
-                // делает студент
+                // делает студент +
                 if (res) {
                     setTechs(res.data.techs)
                     setTotalCount(res.data.totalCount)
                 }
             })
 
-.finally (() =>{
-        setLoading(false)
-    })
+            .finally(() => {
+                setLoading(false)
+            })
     }
 
     const onChangePagination = (newPage: number, newCount: number) => {
-        // делает студент
-
+        // делает студент +
+// выбираем страницу
         setPage(newPage)
-         setCount(newCount)
-        sendQuery({sort: sort,
+        setCount(newCount)
+        sendQuery({
+            sort: sort,
             page: newPage,
-            count: newCount,})
-            setSearchParams( {sort: sort, page: String(newPage), count: String(newCount)})
+            count: newCount,//sendQuery → работает с сервером → числа
+        })
+        setSearchParams({sort: sort, page: String(newPage), count: String(newCount)})
 
     }
 
     const onChangeSort = (newSort: string) => {
-        // делает студент +n
+        // делает студент +
         setSort(newSort)
         setPage(1)// при сортировке сбрасывать на 1 страницу
-        sendQuery({sort:newSort,
+        sendQuery({
+            sort: newSort,
             page: 1, //sendQuery → работает с сервером → числа
-            count })
-        setSearchParams( {sort: newSort, page: "1", count: String(count)})
+            count
+        })
+        setSearchParams({sort: newSort, page: "1", count: String(count)})
 //setSearchParams → работает с URL → строки
         // setSearchParams нужен, чтобы состояние страницы сохранялось в URL:
 // - после обновления страницы
@@ -112,10 +116,24 @@ const HW15 = () => {
     }
 
     useEffect(() => {
+        // при открытии страницы:
+        // читаем параметры из URL
+        //кладём их в state
+        // запрашиваем данные с сервера
         const params = Object.fromEntries(searchParams)
-        sendQuery({page: params.page, count: params.count})
-        setPage(+params.page || 1)
-        setCount(+params.count || 4)
+
+        const initPage = Number(params.page) || 1
+        const initCount = Number(params.count) || 4
+        const initSort = params.sort || ''
+
+        sendQuery({
+            sort: initSort,
+            page: initPage,
+            count: initCount
+        })
+        setPage(initPage)
+        setCount(initCount)
+        setSort(initSort)
     }, [])
 
     const mappedTechs = techs.map(t => (
@@ -135,7 +153,7 @@ const HW15 = () => {
             <div className={s2.hwTitle}>Homework #15</div>
 
             <div className={s2.hw}>
-                {idLoading && <div id={'hw15-loading'} className={s.loading}>Loading...</div>}
+                {isLoading && <div id={'hw15-loading'} className={s.loading}>Loading...</div>}
 
                 <SuperPagination
                     page={page}
