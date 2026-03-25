@@ -87,6 +87,8 @@ const HW15 = () => {
     const onChangePagination = (newPage: number, newCount: number) => {
         // делает студент +
 // выбираем страницу
+        console.log('onChangePagination', newPage, newCount)
+
         setPage(newPage)
         setCount(newCount)
         sendQuery({
