@@ -57,7 +57,13 @@
 }
 
 .loading {
-
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.6);
+    z-index: 10;
 }
 .sort {
     display: inline-flex;
